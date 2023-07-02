@@ -11,3 +11,9 @@ services:
       - 8888:8888
     volumes:
       - ./data:/home/jovyan/work
+    networks:
+      - default
+      - my-network
+networks:
+  my-network:
+    external: true
