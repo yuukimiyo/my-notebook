@@ -2,6 +2,8 @@ version: '3.4'
 services:
   notebook:
     image: jupyter/base-notebook:latest
+    container_name: my-notebook
+    hostname: my-notebook
     command:
       - start-notebook.sh
       - --NotebookApp.token='' # 認証を無効化

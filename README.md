@@ -25,3 +25,28 @@ sudo chgrp docker-group data
 ```
 docker network create my-network
 ```
+
+# その他
+
+## root作業
+
+rootユーザでの作業が必要な場合は次のコマンドでコンテナへログインする。
+
+```
+docker exec -it --user root {コンテナ名} /bin/bash
+```
+
+## jovyanユーザの設定
+
+コンテナへrootユーザでログインして実施する。
+
+```
+# パスワードを付与
+passwd jovyan
+
+# ユーザのロックを解除
+passwd -u jovyan
+
+# パスワード無しsudo設定
+echo "jovyan ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/jovyan
+```
